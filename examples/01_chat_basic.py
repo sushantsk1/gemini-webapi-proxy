@@ -18,12 +18,9 @@ client = OpenAI(
 
 resp = client.chat.completions.create(
     model="gemini-3-flash",
-    messages=[{"role": "user", "content": "Reply with exactly: pong"}],
-    max_tokens=20,
-    temperature=0.0,
+    messages=[{"role": "user", "content": "how are u man reply in three sentence"}],
+    temperature=0.7,
 )
 
 content = resp.choices[0].message.content
 print(content)
-if content.strip().lower() != "pong":
-    sys.exit("expected the model to echo 'pong'; got: " + repr(content))
